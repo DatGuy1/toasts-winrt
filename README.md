@@ -1,24 +1,22 @@
-# Python Windows SDK
+# Python toasts-winrt SDK
 
-Python bindings for the Windows SDK.
+Select toast notification-related Python bindings for the Windows SDK to be used in [Windows-Toasts].
 
-This is a community-supported version of the unmaintained [winrt] package.
+This is forked from the [winsdk] package, under the MIT license.
 
-[winrt]: https://pypi.org/project/winrt
+[Windows-Toasts]: https://pypi.org/project/Windows-Toasts
 
 
 ## Installation
 
-This package is distributed on PyPI as the [winsdk] package.
+This package is distributed on PyPI as the [toasts-winrt] package.
 
     # use your favorite environment manager
-    poetry add winsdk
-    pipenv install winsdk
-    pip install winsdk
+    poetry add toasts-winrt
+    pipenv install toasts-winrt
+    pip install toasts-winrt
+
+You'll most likely install it indirectly however, through the [Windows-Toasts] project.
 
 [winsdk]: https://pypi.org/project/winsdk
-
-
-## Documentation
-
-https://python-winsdk.readthedocs.io/en/latest/
+[toasts-winrt]: https://pypi.org/project/toasts-winrt
