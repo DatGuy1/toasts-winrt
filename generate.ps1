@@ -21,7 +21,7 @@ $pywinrt_path = "$projectionPath\pywinrt"
 Remove-Item $cppwinrt_path -Recurse -Force -ErrorAction SilentlyContinue
 Remove-Item $pywinrt_path -Recurse -Force -ErrorAction SilentlyContinue
 
-$pyinclude = "Windows.UI.Notifications", "Windows.Foundation"
+$pyinclude = "Windows.UI.Notifications", "Windows.Foundation", "Windows.Data.Xml.Dom"
 $pyexclude = "Windows.Foundation.Diagnostics", "Windows.Foundation.Metadata", "Windows.Foundation.Numerics"
 
 $pyin = $pyinclude | ForEach-Object { "-include", "$_" }
