@@ -21,8 +21,8 @@ $pywinrt_path = "$projectionPath\pywinrt"
 Remove-Item $cppwinrt_path -Recurse -Force -ErrorAction SilentlyContinue
 Remove-Item $pywinrt_path -Recurse -Force -ErrorAction SilentlyContinue
 
-$pyinclude = "Windows"
-$pyexclude = "Windows.UI.Composition", "Windows.UI.Xaml"
+$pyinclude = "Windows.UI.Notifications", "Windows.Foundation"
+$pyexclude = "Windows.Foundation.Diagnostics", "Windows.Foundation.Metadata", "Windows.Foundation.Numerics"
 
 $pyin = $pyinclude | ForEach-Object { "-include", "$_" }
 $pyout = $pyexclude | ForEach-Object { "-exclude", "$_" }
@@ -31,5 +31,5 @@ $pyout = $pyexclude | ForEach-Object { "-exclude", "$_" }
 # it would be nice to only generate required files
 & $cppwinrt_exe -input $windows_sdk_version -output $cppwinrt_path
 
-$pyparams = ("-module", "winsdk", "-input", $windows_sdk_version, "-output", $pywinrt_path, "-verbose") + $pyin + $pyout
+$pyparams = ("-module", "toasts_winrt", "-input", $windows_sdk_version, "-output", $pywinrt_path, "-verbose") + $pyin + $pyout
 & $pywinrt_exe $pyparams

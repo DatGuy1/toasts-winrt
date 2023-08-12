@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.24)
 cmake_policy(SET CMP0091 NEW)
-project(winsdk LANGUAGES CXX)
+project(toasts_winrt LANGUAGES CXX)
 
 file(GLOB sources "${CMAKE_CURRENT_SOURCE_DIR}/pywinrt/${CMAKE_PROJECT_NAME}/src/*.cpp")
 
@@ -38,14 +38,14 @@ target_include_directories(_winrt PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/cppwinrt" 
 
 # speed up builds by precompiling commonly used headers
 target_precompile_headers(_winrt PRIVATE
-    "pywinrt/winsdk/src/py.Windows.Foundation.h"
-    "pywinrt/winsdk/src/py.Windows.Storage.Streams.h"
+    "pywinrt/toasts_winrt/src/py.Windows.Foundation.h"
+    # "pywinrt/toasts-winrt/src/py.Windows.Storage.Streams.h"
 )
 # needed because including windows.h affects winrt
-set_property(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/pywinrt/winsdk/src/runtime.cpp" PROPERTY SKIP_PRECOMPILE_HEADERS ON)
+set_property(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/pywinrt/toasts_winrt/src/runtime.cpp" PROPERTY SKIP_PRECOMPILE_HEADERS ON)
 # needed because including Shobjidl.h affects winrt
-set_property(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/pywinrt/winsdk/src/_winrt.cpp" PROPERTY SKIP_PRECOMPILE_HEADERS ON)
+set_property(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/pywinrt/toasts_winrt/src/_winrt.cpp" PROPERTY SKIP_PRECOMPILE_HEADERS ON)
 # needed because including unknwn.h affects winrt
-set_property(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/pywinrt/winsdk/src/py.Windows.Graphics.Capture.Interop.cpp" PROPERTY SKIP_PRECOMPILE_HEADERS ON)
+set_property(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/pywinrt/toasts_winrt/src/py.Windows.Graphics.Capture.Interop.cpp" PROPERTY SKIP_PRECOMPILE_HEADERS ON)
 
 install(TARGETS _winrt DESTINATION "pywinrt/${CMAKE_PROJECT_NAME}")
